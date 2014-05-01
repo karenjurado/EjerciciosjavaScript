@@ -1,0 +1,30 @@
+Función solo numeros hexadecimal:
+<html>
+	<input type="text" align="center" name="hexa"  id="hexa" oninput="numhexa(this)" ><br>
+	<input type="button" value="comprobar" name="boton" align="center" oninput="numhexa(this)" ><br>
+	
+</html>
+
+<script>
+	    function numhexa(entrada){
+			
+			var valor="";
+			var cadenaNumerica="";
+				 for(i=0;i<=entrada.length;i++)
+				{
+					valor=entrada.substring(i,i+1)
+					if (valor=="0123456789ABCDEF")
+					cadenaNumerica+=valor; 
+					document.getElementById("hexa").value=cadenaNumerica;
+					 }    
+        var saber = parseInt(cadenaNumerica,16).toString(10);
+        document.getElementById("decimal").value=saber;
+				}
+}
+function decimal_a_Hexadecimal(valor){
+    var saber = parseInt(valor,10).toString(16);
+    document.getElementById("hexa").value=saber;
+}	
+					
+		
+</script>
