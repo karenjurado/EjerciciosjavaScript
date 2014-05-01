@@ -1,0 +1,55 @@
+ejercicio que solo perimite el ingreso de la cedula 
+====================================================
+
+<html>
+<head>
+<title>Validar solo la cedula</title>
+
+<script type = "text/javascript">
+ alert('Este script valida la cedula del usuario y mostrará \n si esta correcto \n ');
+ function validar(){
+  var number = document.getElementById('ruc').value;
+  var dto = number.length;
+  var valor;
+  var acu=0;
+  if(number==""){
+   alert('No has ingresado ningun dato, porfavor ingresar los datos correspondientes.');
+   }
+  else{
+   for (var i=0; i<dto; i++){
+   valor = number.substring(i,i+1);
+   if(valor==0||valor==1||valor==2||valor==3||valor==4||valor==5||valor==6||valor==7||valor==8){
+    acu = acu+1;
+   }
+   }
+   if(acu==dto){
+    while(number.substring(10,11)!='-'){
+     alert('Es correcta la cedula.');
+     return;
+    }
+    alert('La cedula está escrita correctamente');
+    var porcion1 = number.substring(2,3);
+   }
+   else{
+   alert("ERROR: Por favor no ingrese texto");
+   }
+  }
+ }
+</script>
+</head>
+ <center>
+ <body bgcolor = "2f4f2f" text = "white">
+ <form>
+ <h1><center>VALIDACION DE LA CEDULA </center></h1>
+ <br />
+ <h3><center>Ingrese el numero de cedula </center></h3>
+ <br />
+ <br />
+ <b>RUC :</b><input type = "text" name = "dato" id = "ruc" maxlength = 13>
+ <br />
+ <br />
+ <input type = "button" value = "Validar RUC" onclick = "validar()">
+ </center>
+ </form>
+ </body>
+</html>
