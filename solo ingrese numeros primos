@@ -1,0 +1,36 @@
+
+<html>
+	
+	<input type="text" align="center" name="primo"  id="primo" oninput="numprimo()" SIZE=50 MAXLENGTH=50 ><br>
+	<input type="button" value="comprobar" name="botonprimo" align="center" oninput="numprimo()" ><br>
+	
+</html>
+
+<script>
+
+	function numprimo() 
+	{
+		if (/[a-z]-[0-1]/.test(document.getElementById("primo").value))
+	{
+		alert("Incorrecto solo numeros")
+    }
+		else
+	{
+		var numero = prompt("Introduzca el numero:");
+			if(numero > 0)
+	{
+				for(var i=1;i<numero;i++)
+		{
+                if(numero%i==0)
+			{
+                document.write(i);
+			}
+        }
+    }
+		else   
+		{
+			alert("no es numero primo");   
+		} 
+	}
+}
+</script>
