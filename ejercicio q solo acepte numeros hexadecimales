@@ -1,8 +1,13 @@
 Función solo numeros hexadecimal:
+<br>
+<center> <br>
+Funcion solo numeros hexadecimal: <br>
+
 <html>
+	<br>
 	<input type="text" align="center" name="hexa"  id="hexa" oninput="numhexa(this)" ><br>
 	<input type="button" value="comprobar" name="boton" align="center" oninput="numhexa(this)" ><br>
-	
+	</center>
 </html>
 
 <script>
