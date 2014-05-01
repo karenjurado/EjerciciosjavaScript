@@ -1,12 +1,11 @@
 ejercicio que solo perimite el ingreso de la cedula 
 ====================================================
-
 <html>
 <head>
 <title>Validar solo la cedula</title>
 
 <script type = "text/javascript">
- alert('Este script valida la cedula del usuario y mostrará \n si esta correcto \n ');
+ alert('Este script valida la cedula del usuario y mostrara \n si esta correcto \n ');
  function validar(){
   var number = document.getElementById('ruc').value;
   var dto = number.length;
@@ -42,13 +41,13 @@ ejercicio que solo perimite el ingreso de la cedula
  <form>
  <h1><center>VALIDACION DE LA CEDULA </center></h1>
  <br />
- <h3><center>Ingrese el numero de cedula </center></h3>
+ <h2><center>Ingrese el numero de cedula </center></h2>
  <br />
  <br />
  <b>RUC :</b><input type = "text" name = "dato" id = "ruc" maxlength = 13>
  <br />
  <br />
- <input type = "button" value = "Validar RUC" onclick = "validar()">
+ <input type = "button" value = "Validar Cedula" onclick = "validar()">
  </center>
  </form>
  </body>
