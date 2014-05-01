@@ -1,20 +1,17 @@
 
-
 <html>   
-  
 	<body>
-	
+		<body bgcolor="#8080C0" height="43">
 		<center>
-		    <h2> escribe la frase que desee y podras escojer una palabra para invertir</h2> <br>
-			<h3>Frase:</h3><br>
+		    <h1> Escribe una frase la que desee y podras escojer una palabra para invertir</h1> <br>
 			
+			<h2>Frase:</h2><br>
 			<input type="text" id="frase" name="frase"/><br>
-			<h3>Palabra a invertir:</h3><br>
+			<h2>Palabra a invertir:</h2><br>
 			<input type="text" id="palabra" name=""/><br>
 			<input type="button" id="invertir" value="invertir" onclick="sumaBinarios(document.getElementById('frase').value, document.getElementById('palabra').value)"/>
 			<br>
 		</center>
-
 	</body>
 </html>
 
@@ -38,4 +35,3 @@
                 return cadenaInvertida;
             }
   </script>
-
