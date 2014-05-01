@@ -1,0 +1,41 @@
+
+
+<html>   
+  
+	<body>
+	
+		<center>
+		    <h2> escribe la frase que desee y podras escojer una palabra para invertir</h2> <br>
+			<h3>Frase:</h3><br>
+			
+			<input type="text" id="frase" name="frase"/><br>
+			<h3>Palabra a invertir:</h3><br>
+			<input type="text" id="palabra" name=""/><br>
+			<input type="button" id="invertir" value="invertir" onclick="sumaBinarios(document.getElementById('frase').value, document.getElementById('palabra').value)"/>
+			<br>
+		</center>
+
+	</body>
+</html>
+
+  <script>
+           
+            function sumaBinarios(fraseRecivida, palabraRecivida) {
+					var palabras = fraseRecivida.split(" ");
+                for (i = 0; i < palabras.length; i++) {
+                    if (palabras[i] == palabraRecivida) {
+                        alert(invertir(palabras[i]));
+                    }
+                }
+            }
+            function invertir(cadena) {
+                var x = cadena.length;
+                var cadenaInvertida = "";
+                while (x >= 0) {
+                    cadenaInvertida = cadenaInvertida + cadena.charAt(x);
+                    x--;
+                }
+                return cadenaInvertida;
+            }
+  </script>
+
