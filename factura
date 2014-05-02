@@ -1,2 +1,98 @@
 
+<!DOCTYPE html>
+KaReN_JuRaDo 
+<html>
+	<body bgcolor="steelblue">
+	<center>
+	<table bgcolor="#58D3F7" size=180><tr><td>
+    <head>
+        <title>Facturacion</title>
+		<h2><center> Facturacion </center></h2><br>
+        <meta charset="UTF-8">
+        <meta type="text" name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function datos() {
+                var clientes = ["Consumidor Final"];
+                var productos = ["Arroz", "Azucar", "Leche", "Chocolate","Frutas"];
+                var listaClientesDatos = document.getElementById('listaClientes');
+                for (var i = 0; i < clientes.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.innerHTML = clientes[i];
+                    opt.value = clientes[i];
+                    listaClientesDatos.appendChild(opt);
+                }
+                var listaProductosDatos = document.getElementById('listaProducto');
+                for (var i = 0; i < productos.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.innerHTML = productos[i];
+                    opt.value = productos[i];
+                    listaProductosDatos.appendChild(opt);
+                }
 
+            }
+            function total() {
+                var unitario = document.getElementById('precioUnit').value;
+                var cantidad = document.getElementById('cantidad').value;
+                var total = parseFloat(unitario) * parseFloat(cantidad);
+                document.getElementById('total').value = total;
+            }
+            function crearFilaProductoIngresado() {
+                var subtotal = document.getElementById('subtotal').value;
+                document.getElementById('subtotal').value = parseFloat(subtotal) + parseFloat(document.getElementById('total').value);
+                var subtotalNuevo = document.getElementById('subtotal').value;
+                document.getElementById('iva').value = parseFloat(subtotalNuevo) * 0.12;
+                var ivaNuevo = document.getElementById('iva').value;
+                document.getElementById('descuento').value = (parseFloat(subtotalNuevo) + parseFloat(ivaNuevo)) * 0.05;
+                var descuentoNuevo = document.getElementById('descuento').value;
+                document.getElementById('totalFinal').value = (parseFloat(subtotalNuevo) + parseFloat(ivaNuevo)) - parseFloat(descuentoNuevo);
+                capotTexto = document.createElement('input');
+                capotTexto.type = "text";
+                capotTexto.name = "producto";
+                capotTexto.id = "produc";
+                capotTexto.value = document.getElementById('listaProducto').value + '     -     ' + document.getElementById('precioUnit').value + '     -     ' + document.getElementById('cantidad').value + '     -     ' + document.getElementById('total').value;
+                capotTexto.size = "50";
+                document.getElementById('contenido').appendChild(capotTexto);
+                salto = document.createElement('br');
+                document.getElementById('contenido').appendChild(salto);
+            }
+
+        </script>
+    </head>
+    <body onload="datos()">
+		<center><i>Escoja cliente:</i>
+			<br><select id="listaClientes"></select><br>
+			</center>
+			<br>
+        <i>Producto:</i>
+			<select id="listaProducto"></select>
+        <i>Precio Unitario:</i>
+			<input type="text" id="precioUnit" /><br>
+        <br><i>Cantidad: </i>
+			<input type="text" id="cantidad" onchange="total()"/>
+		<i>Total: </i>
+			<input type="text" id="total"/> <br>
+			<center> 
+			<br><input align="center" type="button" id="agregar" value="Agregar" onclick="crearFilaProductoIngresado()"/><br>
+      
+       <b>Resumen de compra: </b><br>
+        <i>-Producto <br>
+		- Precio <br>
+		- Cantidad <br>
+		- Total<br></i>
+        <div id="contenido">
+
+        </div>
+        <hr>
+		<center>
+		   <br><i>Subtotal :</i><br>
+			<input type="text" id="subtotal" value="0"/> <br>
+		   <br><i>IVA 12%:</i><br>
+			<input type="text" id="iva"/> <br>
+		   <br><i>Descuento 7%:</i><br>
+			<input type="text" id="descuento"/> <br>
+		   <br><i>Total Final:</i><br>
+			<input type="text" id="totalFinal"/> <br>
+		</center>
+		</table>
+    </body>
+</html>
