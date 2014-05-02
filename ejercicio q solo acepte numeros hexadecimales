@@ -1,35 +1,42 @@
-Función solo numeros hexadecimal:
 <br>
 <center> <br>
 Funcion solo numeros hexadecimal: <br>
 
 <html>
 	<br>
-	<input type="text" align="center" name="hexa"  id="hexa" oninput="numhexa(this)" ><br>
-	<input type="button" value="comprobar" name="boton" align="center" oninput="numhexa(this)" ><br>
+	  <div class="presentacion">
+            <h2>Transformar a hexadecimal</h2>
+            hexadecimal<br />
+            <input id="hexa" onkeyup="hexadecimal_a_Decimal(this.value)"/>
+            <br />decimal<br />
+            <input id="decimal" onkeyup="decimal_a_Hexadecimal(this.value)" />
+         </div>
+        
 	</center>
 </html>
 
 <script>
-	    function numhexa(entrada){
-			
-			var valor="";
-			var cadenaNumerica="";
-				 for(i=0;i<=entrada.length;i++)
-				{
-					valor=entrada.substring(i,i+1)
-					if (valor=="0123456789ABCDEF")
-					cadenaNumerica+=valor; 
-					document.getElementById("hexa").value=cadenaNumerica;
-					 }    
+function hexadecimal_a_Decimal(entrada){
+    var valor="";
+    var cadenaNumerica="";
+    for(i=0;i<=entrada.length;i++){
+        valor=entrada.substring(i,i+1)
+         if(valor=="1" || valor=="2" || valor=="3"|| valor=="4"|| valor=="5"|| valor=="6"
+            || valor=="7"|| valor=="8"|| valor=="9"|| valor=="0"|| valor=="A"|| valor=="B"
+            || valor=="C"|| valor=="D"|| valor=="E"|| valor=="F"|| valor=="a"|| valor=="b"
+            || valor=="c"|| valor=="d"|| valor=="e"|| valor=="f")
+			{
+               cadenaNumerica+=valor;
+               document.getElementById("hexa").value=cadenaNumerica;
+        }
         var saber = parseInt(cadenaNumerica,16).toString(10);
         document.getElementById("decimal").value=saber;
-				}
-}
+    }
+	}
+     
 function decimal_a_Hexadecimal(valor){
     var saber = parseInt(valor,10).toString(16);
     document.getElementById("hexa").value=saber;
-}	
-					
+}
 		
 </script>
